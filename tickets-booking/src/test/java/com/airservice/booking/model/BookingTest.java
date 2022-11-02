@@ -69,16 +69,17 @@ class BookingTest {
     }
 
     @Test
-    void equals_sameIdsDifferentFlights_True() {
+    void equals_sameIdsDifferentFlights_False() {
+        LocalDateTime dateTime = LocalDateTime.of(2019, 3, 28, 14, 33);
         Booking booking1 = new Booking.Builder("user12")
                 .flightId("S7887")
                 .id(15l)
-                .bookingDateTime(LocalDateTime.MIN)
+                .bookingDateTime(dateTime)
                 .build();
         Booking booking2 = new Booking.Builder("user12")
                 .flightId("SU587")
                 .id(15l)
-                .bookingDateTime(LocalDateTime.MIN)
+                .bookingDateTime(dateTime)
                 .build();
         assertNotEquals(booking1, booking2);
     }
